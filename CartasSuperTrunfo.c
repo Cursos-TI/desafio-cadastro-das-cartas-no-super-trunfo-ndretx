@@ -14,13 +14,17 @@ int main() {
     char cidade1 [50];
     int populacao1;
     float area1;
+    float densidade1;
     float PIB1;
+    float PIBpercapita1;
     int turisticos1;
     // Cadastro Carta 2
     char codigo2 [4];
     char cidade2 [50];
     int populacao2;
     float area2;
+    float densidade2;
+    float PIBpercapita2;
     float PIB2;
     int turisticos2;
     // Cadastro das Cartas:
@@ -63,7 +67,9 @@ int main() {
     printf("- Cidade: %s \n", cidade1);
     printf("- População: %d \n", populacao1);
     printf("- Área: %2f km² \n", area1);
+    printf("- Densidade: %2f hab/km² \n", populacao1 / area1);
     printf("- PIB: %2f \n", PIB1);
+    printf("- PIB per capita: %2f \n", PIB1 / populacao1);
     printf("- Pontos Turísticos: %d \n", turisticos1);
 
     //Exibindo Carta 2
@@ -71,7 +77,9 @@ int main() {
     printf("- Cidade: %s \n", cidade2);
     printf("- População: %d \n", populacao2);
     printf("- Área: %2f km² \n", area2);
+    printf("- Densidade: %2f hab/km² \n", populacao2 / area2);
     printf("- PIB: %2f \n", PIB2);
+    printf("- PIB per capita: %2f \n", PIB2 / populacao2);
     printf("- Pontos Turísticos: %d \n", turisticos2);
 
 
