@@ -11,6 +11,7 @@ int main() {
     float PIB1;
     float PIBpercapita1;
     int turisticos1;
+    float super_poder1;
     
     // Cadastro Carta 2
     char codigo2[4];
@@ -22,6 +23,7 @@ int main() {
     float PIB2;
     float PIBpercapita2;
     int turisticos2;
+    float super_poder2;
 
     // Cadastro Carta 1
     printf("Digite o codigo da carta (3 letras): ");
@@ -68,12 +70,20 @@ int main() {
     scanf("%d", &turisticos2);
 
     // Cálculos para Carta 1
+    
     densidade1 = (area1 > 0.0f) ? (float)populacao1 / area1 : 0.0f;
     PIBpercapita1 = (populacao1 > 0) ? (PIB1 * 1000000000.0f) / populacao1 : 0.0f;
+      // Cálculo do Super Poder Carta 1    
+      float inverso_densidade1 = (densidade1 > 0.0f) ? (1.0f / densidade1) : 0.0f;   
+       super_poder1 = (float)populacao1 + area1 + PIB1 + (float)turisticos1 + densidade1 + PIBpercapita1 + inverso_densidade1;        
 
     // Cálculos para Carta 2
     densidade2 = (area2 > 0.0f) ? (float)populacao2 / area2 : 0.0f;
     PIBpercapita2 = (populacao2 > 0) ? (PIB2 * 1000000000.0f) / populacao2 : 0.0f;
+     // Cálculo do Super Poder Carta 1    
+      float inverso_densidade2 = (densidade2 > 0.0f) ? (1.0f / densidade2) : 0.0f;   
+       super_poder2 = (float)populacao2 + area2 + PIB2 + (float)turisticos2 + densidade2 + PIBpercapita2 + inverso_densidade2;        
+
 
     // Exibição Carta 1
     printf("\n=== Carta %s ===\n", codigo1);
@@ -85,6 +95,7 @@ int main() {
     printf("PIB: R$ %.2f bilhões\n", PIB1);
     printf("PIB per capita: R$ %.2f\n", PIBpercapita1);
     printf("Pontos Turísticos: %d\n", turisticos1);
+    printf("Super Poder: %.2f\\n", super_poder1);        
 
     // Exibição Carta 2
     printf("\n=== Carta %s ===\n", codigo2);
@@ -96,6 +107,22 @@ int main() {
     printf("PIB: R$ %.2f bilhões\n", PIB2);
     printf("PIB per capita: R$ %.2f\n", PIBpercapita2);
     printf("Pontos Turísticos: %d\n", turisticos2);
+    printf("Super Poder: %.2f\\n", super_poder2);  
+    printf("\\n--- Resultados das Comparações (1 para Carta 1 vence, 0 para Carta 2 vence ou Empate) ---\\n");
+    // Comparação de População (maior vence)    
+    printf("População: %d\\n", (populacao1 > populacao2) ? 1 : 0);    
+    // Comparação de Área (maior vence)    
+    printf("Área: %d\\n", (area1 > area2) ? 1 : 0);    
+    // Comparação de PIB (maior vence)    
+    printf("PIB: %d\\n", (PIB1 > PIB2) ? 1 : 0);    
+    // Comparação de Pontos Turísticos (maior vence)   
+     printf("Pontos Turísticos: %d\\n", (turisticos1 > turisticos2) ? 1 : 0);    
+    // Comparação de Densidade Populacional (MENOR vence)    
+    printf("Densidade Populacional: %d\\n", (densidade1 < densidade2) ? 1 : 0);   
+     // Comparação de PIB per Capita (maior vence)   
+      printf("PIB per Capita: %d\\n", (PIBpercapita1 > PIBpercapita2) ? 1 : 0);   
+      // Comparação de Super Poder (maior vence) 
+      printf("Super Poder: %d\\n", (super_poder1 > super_poder2) ? 1 : 0);         
 
     return 0;
 }
